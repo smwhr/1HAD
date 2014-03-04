@@ -1,5 +1,7 @@
 module HAD.Y2014.M03.D04.Exercise where
 
+import Control.Arrow
+import Data.List(zipWith)
 -- | checkSort verify if a given list is sorted
 -- Point-free version is hard to find BUT is readable.
 -- Level: Medium
@@ -16,4 +18,4 @@ module HAD.Y2014.M03.D04.Exercise where
 -- True
 --
 checkSort :: Ord a => [a] -> Bool
-checkSort =  undefined
+checkSort =  and . (uncurry $ zipWith (<=)) . (id &&& (drop 1))
