@@ -18,4 +18,4 @@ import Data.List(zipWith)
 -- True
 --
 checkSort :: Ord a => [a] -> Bool
-checkSort =  and . (uncurry $ zipWith (<=)) . (id &&& (drop 1))
+checkSort =  and . (uncurry $ zipWith (<=)) . (id &&& tail)

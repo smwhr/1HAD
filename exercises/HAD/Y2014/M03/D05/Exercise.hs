@@ -1,5 +1,8 @@
 module HAD.Y2014.M03.D05.Exercise where
 
+import Data.Monoid
+import Data.Foldable
+
 -- | chainEndos chain a list of endomorphism to create a new one
 -- Point-free version is feasible and readable.
 -- Level: Easy
@@ -15,4 +18,4 @@ module HAD.Y2014.M03.D05.Exercise where
 -- 12
 --
 chainEndos :: [a->a] -> a -> a
-chainEndos = undefined
+chainEndos = (appEndo .) (foldMap Endo)
