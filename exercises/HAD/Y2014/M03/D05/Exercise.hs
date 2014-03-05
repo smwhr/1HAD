@@ -18,4 +18,4 @@ import Data.Foldable
 -- 12
 --
 chainEndos :: [a->a] -> a -> a
-chainEndos = (appEndo .) (foldMap Endo)
+chainEndos = appEndo . foldMap Endo
