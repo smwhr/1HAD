@@ -1,9 +1,9 @@
-module HAD.Y2014.M03.D05.Exercise where
+module HAD.Y2014.M03.D05.Solution where
 
-import Data.Monoid
-import Data.Foldable
+import Data.Monoid (Endo (..), appEndo)
+import Data.Foldable (foldMap)
 
--- | chainEndos chain a list of endo-functions to create a new one
+-- | chainEndos chain a list of endofunctions to create a new one
 -- Point-free version is feasible and readable.
 -- Level: Easy
 --
@@ -19,3 +19,6 @@ import Data.Foldable
 --
 chainEndos :: [a->a] -> a -> a
 chainEndos = appEndo . foldMap Endo
+
+chainEndos' :: [a->a] -> a -> a
+chainEndos' = foldr (.) id
