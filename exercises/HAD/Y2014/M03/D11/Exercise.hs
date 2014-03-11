@@ -1,5 +1,7 @@
 module HAD.Y2014.M03.D11.Exercise where
 
+import Data.Char
+
 -- | lcAlphabetFrom
 -- Display the alaphabet in lower cas, starting from the letter given in
 -- parameter.
@@ -22,4 +24,6 @@ module HAD.Y2014.M03.D11.Exercise where
 -- "abcdefghijklmnopqrstuvwxyz"
 
 lcAlphabetFrom :: Char -> String
-lcAlphabetFrom = undefined
+lcAlphabetFrom c 
+  | ord c > 97 && ord c < 122 = [c..'z']++['a'..chr (ord c - 1)]
+  | otherwise =  ['a'..'z']
