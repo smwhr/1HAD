@@ -24,6 +24,4 @@ import Data.Char
 -- "abcdefghijklmnopqrstuvwxyz"
 
 lcAlphabetFrom :: Char -> String
-lcAlphabetFrom c 
-  | ord c > 97 && ord c < 122 = [c..'z']++['a'..chr (ord c - 1)]
-  | otherwise =  ['a'..'z']
+lcAlphabetFrom = take 26 . (flip drop) (cycle ['a'..'z']) . (min 26) . (flip (-) 97 ) . ord
