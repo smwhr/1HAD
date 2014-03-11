@@ -1,5 +1,8 @@
 module HAD.Y2014.M03.D10.Exercise where
 
+import Data.Maybe
+import Numeric
+
 -- $setup
 -- >>> import Test.QuickCheck
 -- >>> import Control.Applicative
@@ -20,4 +23,4 @@ module HAD.Y2014.M03.D10.Exercise where
 -- Nothing
 --
 maybeReadPositiveInt :: String -> Maybe Int
-maybeReadPositiveInt = undefined
+maybeReadPositiveInt = (fmap fst) .listToMaybe . filter (null .snd ) . readDec
